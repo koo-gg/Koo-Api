@@ -21,13 +21,13 @@ public class OAuth2Service {
     @Autowired
     private final WebClient oAuth2WebClient;
 
-    @Value("${CLIENT_ID}")
+    @Value("${discord.oAuth2.client_id}")
     private String clientId;
 
-    @Value("${CLIENT_SECRET}")
+    @Value("${discord.oAuth2.client_secret}")
     private String clientSecret;
 
-    @Value("${REDIRECT_URI}")
+    @Value("${discord.oAuth2.redirect_uri}")
     private String redirectUri;
 
     @Autowired

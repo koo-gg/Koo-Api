@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: redis
+    port: 6379
+
+discord:
+  oAuth2:
+    client_id: ${discord.oAuth2.client_id}
+    client_secret: ${discord.oAuth2.client_secret}
+    redirect_uri: 'http://127.0.0.1:8080/login'
