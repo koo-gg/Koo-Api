@@ -10,7 +10,6 @@ import reactor.core.publisher.Mono;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/v1/tokens")
 public class OAuth2Controller {
 
     private final OAuth2Service oAuth2Service;
@@ -20,9 +19,9 @@ public class OAuth2Controller {
         this.oAuth2Service = oAuth2Service;
     }
 
-    @GetMapping("/hello")
-    public Mono<String> getTest(Model model) {
-        return Mono.just("hello_test");
+    @GetMapping("/about")
+    public Mono<String> getTest() {
+        return Mono.just("About");
     }
 
     @GetMapping("/login")

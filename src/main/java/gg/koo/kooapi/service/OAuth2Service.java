@@ -10,13 +10,9 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-
 @Service("oAuth2Service")
 @Component
 public class OAuth2Service {
-
-    private static final Duration TIMEOUT = Duration.ofSeconds(3);
 
     @Autowired
     private final WebClient oAuth2WebClient;
