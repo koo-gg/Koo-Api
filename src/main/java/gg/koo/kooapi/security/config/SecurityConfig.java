@@ -1,5 +1,7 @@
 package gg.koo.kooapi.security.config;
 
+import gg.koo.kooapi.security.CustomAuthenticationManager;
+import gg.koo.kooapi.security.CustomSecurityContextRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,6 +17,14 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
+
+    private final CustomAuthenticationManager authenticationManager;
+    private final CustomSecurityContextRepository securityContextRepository;
+
+    public SecurityConfig(CustomAuthenticationManager authenticationManager, CustomSecurityContextRepository securityContextRepository) {
+        this.authenticationManager = authenticationManager;
+        this.securityContextRepository = securityContextRepository;
+    }
 
     @Bean
     public MapReactiveUserDetailsService userDetailsService() {
@@ -40,6 +50,8 @@ public class SecurityConfig {
                 .cors().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
+                .authenticationManager(authenticationManager)
+                .securityContextRepository(securityContextRepository)
                 .authorizeExchange()
                 .pathMatchers("/about", "/login").permitAll()
                 .pathMatchers(HttpMethod.GET, "/guilds/**/admin").hasRole("ADMIN")
