@@ -5,6 +5,14 @@ services:
     command: redis-server --port 6379
     ports:
       - "6379:6379"
+  mariadb:
+    image: mariadb:latest
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+    environment:
+      MARIADB_ROOT_PASSWORD: 6599
+      MYSQL_DATABASE: kooapi
+    ports:
+      - "3306:3306"
   appserver:
     build:
       context: .
@@ -15,3 +23,4 @@ services:
       - local.env
     depends_on:
       - redis
+      - mariadb

@@ -1,18 +1,11 @@
 package gg.koo.kooapi.entity.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
-@Data
 @Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name="users")
 public class User {
 
     @Id
@@ -26,7 +19,7 @@ public class User {
     private String username;
 
     @Column(length = 35)
-    private String avartar;
+    private String avatar;
 
     @Column(length = 4)
     private String discriminator;
