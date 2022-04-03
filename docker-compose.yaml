@@ -24,3 +24,5 @@ services:
     depends_on:
       - redis
       - mariadb
+    environment:
+      - TZ=Asia/Seoul

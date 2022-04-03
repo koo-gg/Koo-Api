@@ -3,11 +3,14 @@ spring:
     host: redis
     port: 6379
   r2dbc:
-    url: r2dbc:mariadb://127.0.0.1:3306/kooapi?useUnicode=true&characterEncoding=utf8
+    url: r2dbc:mariadb://mariadb:3306/kooapi?useUnicode=true&characterEncoding=utf8
     username: root
     password: 6599
   jpa:
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
 
 discord:
   oAuth2:

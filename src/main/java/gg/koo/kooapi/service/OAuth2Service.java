@@ -14,7 +14,6 @@ import reactor.core.publisher.Mono;
 @Component
 public class OAuth2Service {
 
-    @Autowired
     private final WebClient oAuth2WebClient;
 
     @Value("${discord.oAuth2.client_id}")
