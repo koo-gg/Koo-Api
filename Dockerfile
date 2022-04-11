@@ -6,6 +6,7 @@ ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
 ENTRYPOINT ["java", \
+    "-Dspring.r2dbc.url=${R2DBC_HOST}", \
     "-Ddiscord.oAuth2.client_id=${CLIENT_ID}", \
     "-Ddiscord.oAuth2.client_secret=${CLIENT_SECRET}", \
     "-jar", \

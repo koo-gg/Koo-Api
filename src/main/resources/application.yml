@@ -3,24 +3,19 @@ spring:
     host: redis
     port: 6379
   r2dbc:
-    url: r2dbc:mariadb://mariadb:3306/kooapi?useUnicode=true&characterEncoding=utf8
+    url: ${r2dbc_host}
     username: root
-    password: 6599
+    password: test
   jpa:
     defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create
-    show-sql: true
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
 
 discord:
   oAuth2:
     client_id: ${discord.oAuth2.client_id}
     client_secret: ${discord.oAuth2.client_secret}
     redirect_uri: 'http://127.0.0.1:8080/login/oauth2/code/discord'
-
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          r2dbc: DEBUG
